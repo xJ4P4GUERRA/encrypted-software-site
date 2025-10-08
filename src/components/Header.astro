@@ -1,0 +1,105 @@
+---
+// src/components/Header.astro
+---
+<header class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-lg border-b border-gray-800">
+  <nav class="flex justify-between items-center max-w-7xl mx-auto px-8 py-3">
+    <a href="/" class="flex items-center gap-3">
+      <img src="/assets/logo.png" alt="Logo da Encrypted Software" class="h-14" />
+    </a>
+
+    <ul class="hidden md:flex items-center gap-6">
+      <li>
+        <a href="#servicos" class="text-gray-300 hover:text-red-500 transition-colors">
+          Serviços
+        </a>
+      </li>
+      <li>
+        <a href="#sobre" class="text-gray-300 hover:text-red-500 transition-colors">
+          Sobre Nós
+        </a>
+      </li>
+       <li>
+        <a href="#gateway" class="text-gray-300 hover:text-red-500 transition-colors">
+          Conquistas
+        </a>
+      </li>
+      <li>
+        <a href="#contato" class="text-gray-300 hover:text-red-500 transition-colors">
+          Contato
+        </a>
+      </li>
+    </ul>
+
+    <div class="md:hidden">
+      <button id="menu-btn" class="z-50 block relative">
+        <span class="hamburger-top"></span>
+        <span class="hamburger-middle"></span>
+        <span class="hamburger-bottom"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div id="menu-mobile" class="hidden md:hidden fixed top-0 left-0 w-full h-screen bg-black/95 backdrop-blur-sm">
+    <ul class="flex flex-col items-center pt-24 gap-8 text-xl">
+      <li>
+        <a href="#servicos" class="text-gray-300 hover:text-red-500 mobile-link">Serviços</a>
+      </li>
+      <li>
+        <a href="#sobre" class="text-gray-300 hover:text-red-500 mobile-link">Sobre Nós</a>
+      </li>
+      <li>
+        <a href="#gateway" class="text-gray-300 hover:text-red-500 mobile-link">Conquistas</a>
+      </li>
+      <li>
+        <a href="#contato" class="text-gray-300 hover:text-red-500 mobile-link">Contato</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  // Script para controlar o menu hambúrguer (continua o mesmo)
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu-mobile');
+  const links = document.querySelectorAll('.mobile-link');
+
+  const toggleMenu = () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('hidden');
+    document.body.classList.toggle('overflow-hidden');
+  };
+
+  btn.addEventListener('click', toggleMenu);
+
+  links.forEach(link => {
+    link.addEventListener('click', toggleMenu);
+  });
+</script>
+
+<style>
+  /* Estilos para a animação do ícone hambúrguer (continua o mesmo) */
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #d1d5db; /* text-gray-300 */
+    transition: all 0.3s;
+  }
+
+  .hamburger-top { transform: translateY(-7px); }
+  .hamburger-bottom { transform: translateY(7px); }
+
+  .open .hamburger-top {
+    transform: rotate(45deg);
+  }
+
+  .open .hamburger-middle {
+    display: none;
+  }
+
+  .open .hamburger-bottom {
+    transform: rotate(-45deg);
+  }
+</style>

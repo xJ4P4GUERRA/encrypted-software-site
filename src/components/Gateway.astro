@@ -1,0 +1,40 @@
+---
+// src/components/Gateway.astro
+const awards = [
+  {
+    imgSrc: "/assets/100k.png",
+    alt: "Placa de 100 mil faturados para cliente da Encrypted Software"
+  },
+  {
+    imgSrc: "/assets/500k.png",
+    alt: "Placa de 500 mil faturados para cliente da Encrypted Software"
+  },
+  {
+    imgSrc: "/assets/1M.png",
+    alt: "Placa de 1 milhão faturados para cliente da Encrypted Software"
+  }
+];
+---
+
+<section id="gateway" class="py-20 bg-black">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+      <h2 class="text-4xl font-bold text-gray-100">Gateway de Pagamentos Robusto e Escalável</h2>
+      <p class="mt-4 text-lg text-gray-400">
+        Não apenas desenvolvemos software, criamos ecossistemas de sucesso. Nossa gateway de pagamentos proprietária é a prova disso, processando transações com máxima segurança e performance, e impulsionando o crescimento de nossos parceiros.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+      {awards.map(award => (
+        <div class="animate-on-scroll">
+          <img 
+            src={award.imgSrc} 
+            alt={award.alt} 
+            class="rounded-lg border border-gray-800 w-full h-auto"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
